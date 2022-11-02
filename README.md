@@ -21,7 +21,6 @@ You are going to need only 2 things
 mvn clean package
 docker build -t spring-boot-docker -f docker/Dockerfile .
 docker images
-docker run -p 8080:8080 spring-boot-docker
 ````
 
 ## How to run the docker image
