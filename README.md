@@ -1,4 +1,4 @@
-# Spring Boot :mag_right: Docker
+# Spring Boot :whale: Docker
 
 ## About Spring Boot and this example
 
