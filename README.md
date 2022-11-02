@@ -14,3 +14,18 @@ You are going to need only 2 things
 
 - [Docker](https://www.docker.com) - _in order to dockerize our application_
 - A running Spring Boot application - _like this [example with actuator](https://github.com/codewithhades/spring-boot-actuator)_
+
+## How to build the docker image
+
+````bash
+mvn clean package
+docker build -t spring-boot-docker -f docker/Dockerfile .
+docker images
+docker run -p 8080:8080 spring-boot-docker
+````
+
+## How to run the docker image
+
+````bash
+docker run -p 8080:8080 spring-boot-docker
+````
