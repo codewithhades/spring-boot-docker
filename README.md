@@ -12,19 +12,43 @@ In this example you can check how to dockerize a Spring Boot application so you 
 
 You are going to need only 2 things
 
-- [Docker](https://www.docker.com) - _in order to dockerize our application_
-- A running Spring Boot application - _like this [example with actuator](https://github.com/codewithhades/spring-boot-actuator)_
+- A running Spring Boot application, like this [example with actuator](https://github.com/codewithhades/spring-boot-actuator)
+- [Docker](https://www.docker.com), so we can dockerize the application
 
 ## How to build the docker image
 
-````bash
-mvn clean package
-docker build -t spring-boot-docker -f docker/Dockerfile .
-docker images
-````
+- Firstly we need to package our application into a JAR that will be generated withing the target folder
+    ````bash
+    mvn clean package
+    ````
+
+- The next thing is to create a [Dockerfile](docker/Dockerfile) that is based on a JDK that matches the one used by your project. It should copy the previously generated JAR and run the java command as entrypoint
+    ````Dockerfile
+    FROM openjdk:18-jdk-slim
+    COPY /target/spring-boot-docker.jar /app.jar
+    ENTRYPOINT ["java","-jar","/app.jar"]
+    ````
+
+- With the JAR generated and your [Dockerfile](docker/Dockerfile) you can now build your image by executing
+    ````bash
+    docker build -t spring-boot-docker -f docker/Dockerfile .
+    ````
+- You can make sure that the image was successfully created by listing all the images
+    ````bash
+    docker images
+    
+    REPOSITORY           TAG       IMAGE ID       CREATED        SIZE
+    spring-boot-docker   latest    6fcca5332653   24 hours ago   430MB
+    ````
 
 ## How to run the docker image
 
+You can now run your image by executing the following command (making sure that you link the 8080 ports to allow http connections)
 ````bash
 docker run -p 8080:8080 spring-boot-docker
 ````
+After executing the command you should be able to see the Spring Boot starting logs and access the application actuator by browsing [localhost:8080/app/actuator/health](http://localhost:8080/app/actuator/health)
+
+I hope you found this example useful!
+
+:coffee: May Java be with you!
