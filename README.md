@@ -13,11 +13,11 @@ In this example you can check how to dockerize a Spring Boot application so you 
 You are going to need only 2 things
 
 - A running Spring Boot application, like this [example with actuator](https://github.com/codewithhades/spring-boot-actuator)
-- [Docker](https://www.docker.com), so we can dockerize the application
+- [Docker](https://www.docker.com), so you can dockerize the application
 
 ## How to build the docker image
 
-- Firstly we need to package our application into a JAR that will be generated withing the target folder
+- Firstly you need to package your application into a JAR that will be generated withing the target folder
     ````bash
     mvn clean package
     ````
