@@ -51,6 +51,6 @@ After executing the command you should be able to see the Spring Boot starting l
 
 ## And before you go...
 
-:pray: I hope you find this example useful and if you want to support me in my mission to help our fellow Java developers please consider sponsoring this space!
+:pray: I hope you find this example useful and if you want to support me in my mission to help our fellow Java developers please consider starring and sponsoring this space!
 
 :coffee: May Java be with you!
