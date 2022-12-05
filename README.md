@@ -12,7 +12,7 @@ In this example you can check how to dockerize a Spring Boot application so you 
 
 You are going to need only 2 things
 
-- A Spring Boot project. If you need some help at setting it up you can check how  [in this example](https://github.com/codewithhades/spring-boot-basic-setup)
+- A Spring Boot project like this [example with actuator](https://github.com/codewithhades/spring-boot-actuator)
 - [Docker](https://www.docker.com), so you can dockerize the application
 
 ## How to build the docker image
